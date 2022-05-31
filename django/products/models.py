@@ -7,7 +7,7 @@ from django.db import models
 class Product(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     image = models.CharField(max_length=255, null=True, blank=True)
-    likes = models.PositiveIntegerField()
+    likes = models.PositiveIntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
         return self.title
