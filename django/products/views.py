@@ -9,11 +9,15 @@ from django.shortcuts import get_object_or_404
 from .models import Product, User
 from .serializers import ProductSerializer
 
+from .producer import publish  # rabbitmq producer
+
 
 class ProductViewSet(viewsets.ViewSet):
     def list(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
+        print('called publish')
+        publish()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, reqeust):
