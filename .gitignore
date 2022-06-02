@@ -128,5 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+.idea/
+
 # docker database
 data/
+
+# flask .iml file
+.iml
+
+# .iml for flask
+.iml
